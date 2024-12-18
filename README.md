@@ -47,7 +47,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/istore.git
+   git clone https://github.com/lamiaaselim/istore
    cd istore
 
 2. Install dependencies:
