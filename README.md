@@ -67,6 +67,7 @@ Start the development server:
 
 ## Folder Structure
 
+```sh
 Istore
     ├── public/  
     │   ├── assets/
@@ -116,6 +117,7 @@ Istore
     ├── .gitignore
     │
     └── .env
+```
 
 ## Contributions
 
