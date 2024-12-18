@@ -69,11 +69,14 @@ Start the development server:
 
 ## Folder Structure
 
+Istore
+├── Puplic/  
+|    ├── assets/                    # Static assets like images or styles
+|    │   └── images/
+|    |   └── icons/
 src/
 ├── api/                       # API-related calls
 │   └── product.js
-├── assets/                    # Static assets like images or styles
-│   └── images/
 ├── components/                # Reusable components
 │   ├── common/                # Shared components (e.g., Navbar, Footer)
 │   │   ├── MyNav.jsx
