@@ -53,62 +53,69 @@
 2. Install dependencies:
 
     ```bash
-        Copy code
-        npm install ist
+        npm install
 
 ## Usage
 
 Start the development server:
     ```bash
         npm start
-    ```
 
-** This will start the React development server and open the application in your default web browser at <http://localhost:3000>.
+- This will start the React development server and open the application in your default web browser at: <http://localhost:3000>.
 
-** Open the application and explore the "Istore" e-commerce page.
+- Open the application and explore the "Istore" e-commerce page.
 
 ## Folder Structure
 
-   Istore
-        ├── public/  
-        │   ├── assets/
-        │   │   ├── images/
-        │   │   └── icons/
-        │   └── index.html
-        ├── src/
-        │   ├── api/
-        │   │   └── product.js
-        │   ├── components/
-        │   │   ├── common/
-        │   │   │   ├── MyNav.jsx
-        │   │   │   └── MyFooter.jsx
-        │   │   ├── Product/
-        │   │   │   ├── ProductCard.jsx
-        │   │   │   ├── ProductSection.jsx
-        │   │   │   └── ProductSlider.jsx
-        │   │   └── ...
-        │   ├── hooks/
-        │   │   └── useFetch.js
-        │   ├── pages/
-        │   │   ├── Cart.jsx
-        │   │   ├── Home.jsx
-        │   │   ├── Login.jsx
-        │   │   ├── NotFound.jsx
-        │   │   ├── ProductDetails.jsx
-        │   │   ├── Store.jsx
-        │   │   └── Layout.jsx
-        │   ├── redux/
-        │   │   ├── slices/
-        │   │   │   ├── cartCounter.js
-        │   │   │   └── product.js
-        │   │   └── store.js
-        │   ├── styles/
-        │   │   └── app.css
-        │   ├── utils/
-        │   │   └── validateEmail.js
-        │   ├── App.jsx
-        │   └── index.js
-        └── package.json
+Istore
+    ├── public/  
+    │   ├── assets/
+    │   │   ├── images/
+    │   │   └── icons/
+    │   └── index.html
+    ├── src/
+    │   ├── api/
+    │   │   └── product.js
+    │   ├── components/
+    │   │   ├── common/
+    │   │   │   ├── MyNav.jsx
+    │   │   │   └── MyFooter.jsx
+    │   │   ├── Product/
+    │   │   │   ├── ProductCard.jsx
+    │   │   │   ├── ProductSection.jsx
+    │   │   │   └── ProductSlider.jsx
+    │   │   └── ...
+    │   ├── hooks/
+    │   │   └── useFetch.js
+    │   ├── pages/
+    │   │   ├── Cart.jsx
+    │   │   ├── Home.jsx
+    │   │   ├── Login.jsx
+    │   │   ├── NotFound.jsx
+    │   │   ├── ProductDetails.jsx
+    │   │   ├── Store.jsx
+    │   │   └── Layout.jsx
+    │   ├── redux/
+    │   │   ├── slices/
+    │   │   │   ├── cartCounter.js
+    │   │   │   └── product.js
+    │   │   └── store.js
+    │   ├── styles/
+    │   │   └── app.css
+    │   ├── utils/
+    │   │   └── validateEmail.js
+    │   ├── App.jsx
+    │   └── index.js
+    |
+    ├── package.json
+    |
+    ├── package-lock.json
+    |
+    ├── README.md
+    |
+    ├── .gitignore
+    │
+    └── .env
 
 ## Contributions
 
