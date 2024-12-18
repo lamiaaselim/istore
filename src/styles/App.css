@@ -1,0 +1,35 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.text-purple {
+  color: purple !important;
+}
+.bg-purple {
+  background-color: purple !important;
+}
+
+.btn-purple {
+  color: white !important;
+  background-color: purple !important;
+}
+.btn-purple:hover {
+  color: white !important;
+  background-color: rgb(96, 3, 96) !important;
+}
+
+.btn-outline-purple {
+  color: purple !important;
+  background-color: transparent !important;
+  border: 2px solid purple !important;;
+}
+
+.btn-outline-purple:hover {
+  color: white !important;
+  background-color: purple !important;
+  border: 2px solid purple !important;;
+}
+
+.active {
+  color: purple !important;
+}
