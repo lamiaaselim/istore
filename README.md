@@ -71,25 +71,25 @@ Start the development server:
 
    Istore
         ├── public/  
-        │   ├── assets/                # Static assets like images or styles
+        │   ├── assets/
         │   │   ├── images/
         │   │   └── icons/
-        │   └── index.html             # HTML entry point
+        │   └── index.html
         ├── src/
-        │   ├── api/                   # API-related calls
+        │   ├── api/
         │   │   └── product.js
-        │   ├── components/            # Reusable components
-        │   │   ├── common/            # Shared components (e.g., Navbar, Footer)
+        │   ├── components/
+        │   │   ├── common/
         │   │   │   ├── MyNav.jsx
         │   │   │   └── MyFooter.jsx
         │   │   ├── Product/
         │   │   │   ├── ProductCard.jsx
         │   │   │   ├── ProductSection.jsx
-        │   │   │   └── ProductSlider.jsx  # If a separate slider component exists
+        │   │   │   └── ProductSlider.jsx
         │   │   └── ...
-        │   ├── hooks/                 # Custom React hooks
-        │   │   └── useFetch.js        # Fetch-related logic
-        │   ├── pages/                 # Pages corresponding to routes
+        │   ├── hooks/
+        │   │   └── useFetch.js
+        │   ├── pages/
         │   │   ├── Cart.jsx
         │   │   ├── Home.jsx
         │   │   ├── Login.jsx
@@ -97,18 +97,18 @@ Start the development server:
         │   │   ├── ProductDetails.jsx
         │   │   ├── Store.jsx
         │   │   └── Layout.jsx
-        │   ├── redux/                 # Redux-related files
-        │   │   ├── slices/            # Redux slices
+        │   ├── redux/
+        │   │   ├── slices/
         │   │   │   ├── cartCounter.js
         │   │   │   └── product.js
         │   │   └── store.js
-        │   ├── styles/                # Global or reusable styles
+        │   ├── styles/
         │   │   └── app.css
-        │   ├── utils/                 # Helper functions/utilities
+        │   ├── utils/
         │   │   └── validateEmail.js
-        │   ├── App.jsx                # Main app component
-        │   └── index.js               # Entry point
-        └── package.json               # Project configuration and dependencies
+        │   ├── App.jsx
+        │   └── index.js
+        └── package.json
 
 ## Contributions
 
