@@ -70,45 +70,45 @@ Start the development server:
 ## Folder Structure
 
 Istore
-├── public/  
-│   ├── assets/                # Static assets like images or styles
-│   │   ├── images/
-│   │   └── icons/
-│   └── index.html             # HTML entry point
-├── src/
-│   ├── api/                   # API-related calls
-│   │   └── product.js
-│   ├── components/            # Reusable components
-│   │   ├── common/            # Shared components (e.g., Navbar, Footer)
-│   │   │   ├── MyNav.jsx
-│   │   │   └── MyFooter.jsx
-│   │   ├── Product/
-│   │   │   ├── ProductCard.jsx
-│   │   │   ├── ProductSection.jsx
-│   │   │   └── ProductSlider.jsx  # If a separate slider component exists
-│   │   └── ...
-│   ├── hooks/                 # Custom React hooks
-│   │   └── useFetch.js        # Fetch-related logic
-│   ├── pages/                 # Pages corresponding to routes
-│   │   ├── Cart.jsx
-│   │   ├── Home.jsx
-│   │   ├── Login.jsx
-│   │   ├── NotFound.jsx
-│   │   ├── ProductDetails.jsx
-│   │   ├── Store.jsx
-│   │   └── Layout.jsx
-│   ├── redux/                 # Redux-related files
-│   │   ├── slices/            # Redux slices
-│   │   │   ├── cartCounter.js
-│   │   │   └── product.js
-│   │   └── store.js
-│   ├── styles/                # Global or reusable styles
-│   │   └── app.css
-│   ├── utils/                 # Helper functions/utilities
-│   │   └── validateEmail.js
-│   ├── App.jsx                # Main app component
-│   └── index.js               # Entry point
-└── package.json               # Project configuration and dependencies
+    ├── public/  
+    │   ├── assets/                # Static assets like images or styles
+    │   │   ├── images/
+    │   │   └── icons/
+    │   └── index.html             # HTML entry point
+    ├── src/
+    │   ├── api/                   # API-related calls
+    │   │   └── product.js
+    │   ├── components/            # Reusable components
+    │   │   ├── common/            # Shared components (e.g., Navbar, Footer)
+    │   │   │   ├── MyNav.jsx
+    │   │   │   └── MyFooter.jsx
+    │   │   ├── Product/
+    │   │   │   ├── ProductCard.jsx
+    │   │   │   ├── ProductSection.jsx
+    │   │   │   └── ProductSlider.jsx  # If a separate slider component exists
+    │   │   └── ...
+    │   ├── hooks/                 # Custom React hooks
+    │   │   └── useFetch.js        # Fetch-related logic
+    │   ├── pages/                 # Pages corresponding to routes
+    │   │   ├── Cart.jsx
+    │   │   ├── Home.jsx
+    │   │   ├── Login.jsx
+    │   │   ├── NotFound.jsx
+    │   │   ├── ProductDetails.jsx
+    │   │   ├── Store.jsx
+    │   │   └── Layout.jsx
+    │   ├── redux/                 # Redux-related files
+    │   │   ├── slices/            # Redux slices
+    │   │   │   ├── cartCounter.js
+    │   │   │   └── product.js
+    │   │   └── store.js
+    │   ├── styles/                # Global or reusable styles
+    │   │   └── app.css
+    │   ├── utils/                 # Helper functions/utilities
+    │   │   └── validateEmail.js
+    │   ├── App.jsx                # Main app component
+    │   └── index.js               # Entry point
+    └── package.json               # Project configuration and dependencies
 
 ## Contributions
 
