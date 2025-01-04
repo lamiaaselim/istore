@@ -1,94 +1,100 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { validateEmail } from "../utils/validateEmail";
+import { loginUser } from "../API/authService";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState({});
   const navigate = useNavigate();
 
-  const handelerEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handelerPassword = (e) => {
-    setPassword(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handlerSubmit = (e) => {
-    e.preventDefault();
-    if (!hasError(email, password)) {
-      console.log({ email, password });
-      navigate("/");
-    }
-  };
-
-  const hasError = (email, password) => {
+  const validateForm = () => {
+    const { email, password } = formData;
     const errors = {};
-    if (!email.match(/^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/)) {
+
+    if (!validateEmail(email)) {
       errors.email = "Invalid email format";
     }
     if (password.length < 8) {
       errors.password = "Password must be at least 8 characters long";
     }
-    setError(errors);
-    return Object.keys(errors).length;
-  };
-  return (
-    <>
-      <div className="container py-5">
-        <div className="row">
-          <div className="col-md-8 offset-md-2">
-            <h1 className="py-5 text-center text-purple"> Welcome in IStore</h1>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-8 offset-md-2">
-            <form onSubmit={handlerSubmit} noValidate>
-              <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  value={email}
-                  onChange={handelerEmail}
-                />
-                {error.email && (
-                  <div id="emailHelp" className="form-text text-danger">
-                    {error.email}
-                  </div>
-                )}
-              </div>
-              <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  value={password}
-                  onChange={handelerPassword}
-                />
-                {error.password && (
-                  <div id="passwordHelp" className="form-text text-danger">
-                    {error.password}
-                  </div>
-                )}
-              </div>
 
-              <div className="mb-5 d-grid">
-                <button type="submit" className="btn btn-outline-purple">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
+    setError(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (validateForm()) {
+      try {
+        const response = await loginUser(formData);
+        console.log("Login successful:", response);
+
+        // Store token in localStorage or handle it with cookies
+        localStorage.setItem("token", response.token);
+
+        navigate("/");  // Redirect to home or protected page
+      } catch (err) {
+        setError({ general: err.message });
+        console.error(err);
+      }
+    }
+  };
+
+  return (
+    <div className="container py-5">
+      <div className="row">
+        <div className="col-md-8 offset-md-2">
+          <h1 className="py-5 text-center text-success">Welcome Back to IStore</h1>
         </div>
       </div>
-    </>
+      <div className="row">
+        <div className="col-md-8 offset-md-2">
+          <form onSubmit={handleSubmit} noValidate>
+            {/* Email Field */}
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                className={`form-control ${error.email ? "is-invalid" : ""}`}
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {error.email && <div className="invalid-feedback">{error.email}</div>}
+            </div>
+
+            {/* Password Field */}
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">Password</label>
+              <input
+                type="password"
+                name="password"
+                className={`form-control ${error.password ? "is-invalid" : ""}`}
+                id="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+              {error.password && <div className="invalid-feedback">{error.password}</div>}
+            </div>
+
+            {/* General Error */}
+            {error.general && <div className="text-danger">{error.general}</div>}
+
+            {/* Submit Button */}
+            <div className="d-grid">
+              <button type="submit" className="btn btn-outline-purple">Log In</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }

@@ -1,10 +1,10 @@
-// src/pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { validateEmail } from "../utils/validateEmail";
+import { registerUser } from "../API/authService";
 
 export default function Signup() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ username: "", email: "", password: "" });
   const [error, setError] = useState({});
   const navigate = useNavigate();
 
@@ -14,9 +14,12 @@ export default function Signup() {
   };
 
   const validateForm = () => {
-    const { email, password } = formData;
+    const { email, password, username } = formData;
     const errors = {};
 
+    if (!username) {
+      errors.username = "Username is required";
+    }
     if (!validateEmail(email)) {
       errors.email = "Invalid email format";
     }
@@ -28,12 +31,18 @@ export default function Signup() {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log("Login successful:", formData);
-      navigate("/");
+      try {
+        const response = await registerUser(formData);
+        console.log("Signup successful:", response);
+        navigate("/login");  // Redirect to login page after successful registration
+      } catch (err) {
+        setError({ general: err.message });
+        console.error(err);
+      }
     }
   };
 
@@ -41,17 +50,29 @@ export default function Signup() {
     <div className="container py-5">
       <div className="row">
         <div className="col-md-8 offset-md-2">
-          <h1 className="py-5 text-center text-success"> Welcome in IStore</h1>
+          <h1 className="py-5 text-center text-success">Welcome to IStore</h1>
         </div>
       </div>
       <div className="row">
         <div className="col-md-8 offset-md-2">
           <form onSubmit={handleSubmit} noValidate>
+            {/* Username Field */}
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label">Username</label>
+              <input
+                type="text"
+                name="username"
+                className={`form-control ${error.username ? "is-invalid" : ""}`}
+                id="username"
+                value={formData.username}
+                onChange={handleChange}
+              />
+              {error.username && <div className="invalid-feedback">{error.username}</div>}
+            </div>
+
             {/* Email Field */}
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email Address
-              </label>
+              <label htmlFor="email" className="form-label">Email Address</label>
               <input
                 type="email"
                 name="email"
@@ -60,16 +81,12 @@ export default function Signup() {
                 value={formData.email}
                 onChange={handleChange}
               />
-              {error.email && (
-                <div className="invalid-feedback">{error.email}</div>
-              )}
+              {error.email && <div className="invalid-feedback">{error.email}</div>}
             </div>
 
             {/* Password Field */}
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
+              <label htmlFor="password" className="form-label">Password</label>
               <input
                 type="password"
                 name="password"
@@ -78,16 +95,15 @@ export default function Signup() {
                 value={formData.password}
                 onChange={handleChange}
               />
-              {error.password && (
-                <div className="invalid-feedback">{error.password}</div>
-              )}
+              {error.password && <div className="invalid-feedback">{error.password}</div>}
             </div>
+
+            {/* General Error */}
+            {error.general && <div className="text-danger">{error.general}</div>}
 
             {/* Submit Button */}
             <div className="d-grid">
-              <button type="submit" className="btn btn-outline-purple">
-                Submit
-              </button>
+              <button type="submit" className="btn btn-outline-purple">Sign Up</button>
             </div>
           </form>
         </div>

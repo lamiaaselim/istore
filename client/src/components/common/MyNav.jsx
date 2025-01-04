@@ -49,7 +49,7 @@ export default function MyNav() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link fs-6" to="/sign-up">
+                <NavLink className="nav-link fs-6" to="/register">
                   Register
                 </NavLink>
               </li>

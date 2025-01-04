@@ -8,6 +8,7 @@ import {
 import { decProductCount, incProductCount } from "./../../redux/slices/product";
 
 const ProductCard = ({ id, count, title, description, price, image }) => {
+  const IMG_URL = process.env.REACT_APP_IMAGES_API;
   // console.log(image)
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -15,11 +16,13 @@ const ProductCard = ({ id, count, title, description, price, image }) => {
   const handlerAdd = (id) => {
     dispatch(incCartCounter());
     dispatch(incProductCount(id));
+    console.log(id)
   };
 
   const handlerRemove = (id) => {
     dispatch(decCartCounter());
     dispatch(decProductCount(id));
+    console.log(id)
   };
 
   const gotoDetails = (id) => {
@@ -31,7 +34,7 @@ const ProductCard = ({ id, count, title, description, price, image }) => {
     <>
       <div className="card h-100">
         <img
-          src={`http://localhost:8000/api/${image}`}
+          src={`${IMG_URL}${image}`}
           className="card-img-top"
           alt="..."
           style={{ height: "300px", cursor: "pointer" }}

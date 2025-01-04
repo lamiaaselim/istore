@@ -18,14 +18,14 @@ const productSlice = createSlice({
     },
     incProductCount: (state, action) => {
       state.arrWithCount = state.arrWithCount.map((product) =>
-        action.payload === product.id
+        action.payload === product._id
           ? { ...product, count: product.count + 1 }
           : product
       );
     },
     decProductCount: (state, action) => {
       state.arrWithCount = state.arrWithCount.map((product) =>
-        action.payload === product.id
+        action.payload === product._id
           ? { ...product, count: product.count - 1 }
           : product
       );

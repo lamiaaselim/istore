@@ -25,6 +25,13 @@ exports.login = async (req, res, next) => {
   try {
     const result = await UserService.login(email, password);
     if (result) {
+      // Set token as an HTTP-only cookie
+      res.cookie('token', result.token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // Set secure flag in production
+        maxAge: 2 * 60 * 60 * 1000, // Token expires in 2 hours
+      });
+      
       res.json({
         _id: result.user._id,
         email: result.user.email,
