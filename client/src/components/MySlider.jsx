@@ -12,24 +12,32 @@ export default class MySlider extends Component {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
-                style={{ height: "680px", backgroundSize: "auto" }}
-                src="./assets/images/slide-01.webp"
+                style={{ height: "520px", backgroundSize: "auto" }}
+                src="./assets/images/S01.avif"
                 className="d-block w-100"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                style={{ height: "680px", backgroundSize: "auto" }}
-                src="./assets/images/slide-01.webp"
+                style={{ height: "520px", backgroundSize: "auto" }}
+                src="./assets/images/S02.avif"
                 className="d-block w-100"
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                style={{ height: "680px", backgroundSize: "auto" }}
-                src="./assets/images/slide-01.webp"
+                style={{ height: "520px", backgroundSize: "auto" }}
+                src="./assets/images/S03.jpg"
+                className="d-block w-100"
+                alt="..."
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                style={{ height: "520px", backgroundSize: "auto" }}
+                src="./assets/images/S04.jpg"
                 className="d-block w-100"
                 alt="..."
               />
