@@ -3,15 +3,15 @@
 }
 
 .text-purple {
-  color: purple !important;
+  color: #655cc9 !important;
 }
 .bg-purple {
-  background-color: purple !important;
+  background-color: #655cc9 !important;
 }
 
 .btn-purple {
   color: white !important;
-  background-color: purple !important;
+  background-color: #655cc9 !important;
 }
 .btn-purple:hover {
   color: white !important;
@@ -19,17 +19,17 @@
 }
 
 .btn-outline-purple {
-  color: purple !important;
+  color: #655cc9 !important;
   background-color: transparent !important;
-  border: 2px solid purple !important;;
+  border: 1px solid #655cc9 !important;;
 }
 
 .btn-outline-purple:hover {
   color: white !important;
-  background-color: purple !important;
-  border: 2px solid purple !important;;
+  background-color: #655cc9 !important;
+  border: 2px solid #655cc9 !important;;
 }
 
 .active {
-  color: purple !important;
+  color: #655cc9 !important;
 }

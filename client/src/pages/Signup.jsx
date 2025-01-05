@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { validateEmail } from "../utils/validateEmail";
 import { registerUser } from "../API/authService";
+import ErrorAlert from "../components/common/ErrorAlert";
 
 export default function Signup() {
   const [formData, setFormData] = useState({ username: "", email: "", password: "" });
@@ -36,12 +37,13 @@ export default function Signup() {
 
     if (validateForm()) {
       try {
+        // eslint-disable-next-line no-unused-vars
         const response = await registerUser(formData);
-        console.log("Signup successful:", response);
+        // console.log("Signup successful:", response);
         navigate("/login");  // Redirect to login page after successful registration
       } catch (err) {
         setError({ general: err.message });
-        console.error(err);
+        // console.error(err);
       }
     }
   };
@@ -50,7 +52,7 @@ export default function Signup() {
     <div className="container py-5">
       <div className="row">
         <div className="col-md-8 offset-md-2">
-          <h1 className="py-5 text-center text-success">Welcome to IStore</h1>
+          <h1 className="py-5 text-center text-purple">Welcome to IStore</h1>
         </div>
       </div>
       <div className="row">
@@ -108,6 +110,11 @@ export default function Signup() {
           </form>
         </div>
       </div>
+
+       {/* Display error alert */}
+       {error.general && (
+        <ErrorAlert title="Error" text={error.general} icon="error" />
+      )}
     </div>
   );
 }

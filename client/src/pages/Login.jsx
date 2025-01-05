@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { validateEmail } from "../utils/validateEmail";
 import { loginUser } from "../API/authService";
+import ErrorAlert from "../components/common/ErrorAlert";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -34,15 +35,14 @@ export default function Login() {
     if (validateForm()) {
       try {
         const response = await loginUser(formData);
-        console.log("Login successful:", response);
-
+        // console.log("Login successful:", response);
         // Store token in localStorage or handle it with cookies
-        localStorage.setItem("token", response.token);
+        localStorage.setItem("authToken", response.token);
 
         navigate("/");  // Redirect to home or protected page
       } catch (err) {
         setError({ general: err.message });
-        console.error(err);
+        // console.error(err);
       }
     }
   };
@@ -51,7 +51,7 @@ export default function Login() {
     <div className="container py-5">
       <div className="row">
         <div className="col-md-8 offset-md-2">
-          <h1 className="py-5 text-center text-success">Welcome Back to IStore</h1>
+          <h1 className="py-5 text-center text-purple">Welcome Back to IStore</h1>
         </div>
       </div>
       <div className="row">
@@ -95,6 +95,11 @@ export default function Login() {
           </form>
         </div>
       </div>
+
+      {/* Display error alert */}
+      {error.general && (
+        <ErrorAlert title="Error" text={error.general} icon="error" />
+      )}
     </div>
   );
 }

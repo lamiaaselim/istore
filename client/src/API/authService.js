@@ -9,7 +9,9 @@ export const registerUser = async (userData) => {
     const response = await axios.post(`${API_URL}/register`, userData);
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.error || "Registration failed");
+    throw new Error(
+      error.response?.data?.error || "Registration failed, Try again later"
+    );
   }
 };
 
@@ -19,6 +21,8 @@ export const loginUser = async (userData) => {
     const response = await axios.post(`${API_URL}/login`, userData);
     return response.data;
   } catch (error) {
-    throw new Error(error.response?.data?.error || "Login failed");
+    throw new Error(
+      error.response?.data?.error || "Login failed, Try again later"
+    );
   }
 };

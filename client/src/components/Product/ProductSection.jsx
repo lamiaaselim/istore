@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ProductCard from "./ProductCard";
 
+
 export default function ProductSection({ cartCount, setCartCount }) {
   const products = useSelector((state) => state.products.arrWithCount);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
 
   // Filter products based on search and category
   const filteredProducts = products.filter((product) => {

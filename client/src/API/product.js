@@ -8,7 +8,11 @@ export const getAllProducts = async () => {
     // console.log(data);
     return data;
   } catch (err) {
-    console.log(err);
+    // console.log(err),
+    throw new Error(
+      err.response?.data?.message ||
+        "Failed to fetch products. Please check your connection."
+    );
   }
 };
 
@@ -18,6 +22,10 @@ export const getProductById = async (id) => {
     // console.log(data);
     return data;
   } catch (err) {
-    console.log(err);
+    throw new Error(
+      err.response?.data?.message ||
+        "Failed to fetch products. Please check your connection."
+    );
+    // console.log(err);
   }
 };
